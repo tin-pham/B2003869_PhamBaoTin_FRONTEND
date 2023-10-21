@@ -44,7 +44,7 @@ export default {
   props: {
     contact: { type: Object, required: true },
   },
-  emits: ['submit:contact', 'delete:contact'],
+  emits: ['submit:contact', 'delete:contact', 'create:contact'],
   data() {
     const contactFormSchema = yup.object().shape({
       name: yup
@@ -67,6 +67,9 @@ export default {
     },
     deleteContact() {
       this.$emit('delete:contact', this.contactLocal.id);
+    },
+    createContact() {
+      this.$emit('create:contact', this.contactLocal);
     },
   },
 };
